@@ -1,20 +1,15 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { RootStack } from './navigators/AppNavigator'
 
-export default function App() {
+type NavigationProps = Partial<React.ComponentProps<typeof NavigationContainer>>
+
+export default function App(props: NavigationProps) {
 	return (
-		<View style={styles.container}>
-			<Text>Almuerzi</Text>
-			<StatusBar style="auto" />
-		</View>
+		<NavigationContainer
+			{...props}
+		>
+			<RootStack />
+		</NavigationContainer>
 	)
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-})
